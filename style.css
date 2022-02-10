@@ -1,0 +1,21 @@
+@import url(https://fonts.googleapis.com/css?family=KoHo:200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic);
+
+html, body {
+    height : 100%;
+    font-family: koho;
+}
+
+.container-css {  display: grid;
+  grid-template-columns: 0.2fr 1.8fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "navbar-container main-container";
+}
+
+.main-container { grid-area: main-container; }
+
+.navbar-container { grid-area: navbar-container; }
+
+
