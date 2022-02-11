@@ -1,8 +1,9 @@
 # Language
 
--HTML
--CSS
--Alpine JS
+- HTML
+- CSS
+- Alpine JS
+- Node JS + Express
 
 ## Lien du site
 
