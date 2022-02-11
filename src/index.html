@@ -45,7 +45,7 @@
             <!-- #region Skill -->
             <div id="Skill" class="h-screen">
                 <main class="grid w-full min-h-screen text-gray-100 bg-gray-100 place-content-center">
-                    <h1 class="text-3xl text-gray-600 text-center md:text-left font-bold mb-6">
+                    <h1 class="text-3xl text-gray-800 text-center md:text-left font-bold mb-6">
                         Compétences :
                     </h1>
                     <section x-data="skillDisplay"
@@ -114,6 +114,9 @@
             <!-- #region Projet -->
             <div id="Projet" class="h-screen">
                 <main class="grid w-full min-h-screen text-gray-100 bg-gray-100 place-content-center">
+                    <h1 class="text-3xl text-gray-800 text-center md:text-left font-bold mb-6">
+                        Compétences :
+                    </h1>
                     <section x-data="projetDisplay"
                         class="p-6 space-y-6 bg-gray-800 rounded-xl md:grid md:grid-cols-2 md:gap-4 sm:space-y-0">
                         <!-- Sélection des projets -->
@@ -148,9 +151,9 @@
                 </main>
             </div>
             <!-- #endregion Projet-->
-
+            
             <!-- #region Contact -->
-            <div id="#FormContact" class="h-screen">
+            <div id="Contact" class="h-screen">
                 <div class="min-h-screen py-6 flex flex-col justify-center relative overflow-hidden sm:py-12">
                     <span
                         class="border text-4xl text-emerald-800 px-6 pt-10 pb-8 bg-white w-1/2 max-w-md mx-auto rounded-t-md sm:px-10">
@@ -160,7 +163,7 @@
                         class="border relative px-4 pt-7 pb-8 bg-white shadow-xl w-1/2 max-w-md mx-auto sm:px-10 rounded-b-md">
                         <form action="">
                             <label for="" class="block"> Email </label>
-                            <input type="email" class="border w-full h-10 px-3 mb-5 rounded-md"
+                            <input id="EmailInput" type="email" class="border w-full h-10 px-3 mb-5 rounded-md"
                                 placeholder="Entrer l'email" />
                             <label for="" class="block"> Demande </label>
                             <input type="text" class="border w-full h-10 px-3 mb-5 rounded-md"
@@ -176,7 +179,7 @@
             <!-- #endregion Contact -->
         </div>
         <!-- Fin du portfolio -->
-
+        
         <!-- Navbar DIV -->
         <div class="navbar-container">
             <div class="absolute sticky inset-y-0 left-0 w-100 h-screen bg-slate-900">
@@ -198,7 +201,7 @@
                             <a href="#Projet">Projet</a>
                         </li>
                         <li class="hover:bg-neutral-400 px-6 border-b border-white w-full">
-                            <a href="#FormContact">Contact</a>
+                            <a href="#Contact">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -211,6 +214,7 @@
 </html>
 
 <script>
+    // #region Skill
     document.addEventListener('alpine:init', () => {
         Alpine.data('skillDisplay', () => ({
             skills: [{
@@ -249,7 +253,9 @@
             }
         }));
     });
+    //#endregion
 
+    //#region experience
     document.addEventListener('alpine:init', () => {
         Alpine.data('experienceDisplay', () => ({
             experiences: [{
@@ -275,7 +281,9 @@
             }
         }));
     });
+    //#endregion
 
+    //#region projet
     document.addEventListener('alpine:init', () => {
         Alpine.data('projetDisplay', () => ({
             projets: [{
@@ -355,4 +363,20 @@
             }
         }));
     });
+    //#endregion
+    
+
+    document.getElementById("EmailInput").addEventListener("keypress", (event) => {
+        console.log("Test");
+        const inputEmail = document.getElementById("EmailInput");
+        const text = inputEmail.value;
+        if(text.includes("@") && text.includes("."))
+        {
+            inputEmail.setAttribute('style', 'border: 1px solid green');
+        }
+        else{
+            inputEmail.setAttribute('style', 'border: 1px solid red');
+        }
+    })
+    
 </script>
