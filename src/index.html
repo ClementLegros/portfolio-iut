@@ -26,8 +26,8 @@
                 <div class="container mx-auto mt-8 md:mt-0 md:space-x-10 md:grid grid-cols-3 justify-center md:py-40">
                     <!-- Image -->
                     <div class="grid justify-center items-center order-1 col-span-1">
-                        <img class="lg:h-80 md:h-64 h-40 rounded-full" src="/image/hecker.gif"
-                            alt="hardcore leveling warrior profil picture" />
+                        <img class="lg:h-80 md:h-64 h-40 rounded-full" src="./image/hecker.gif"
+                            alt="hecker" />
                     </div>
                     <!-- Text -->
                     <div class="mt-8 md:mt-32 lg:justify-end col-span-2">
@@ -44,12 +44,13 @@
 
             <!-- #region Skill -->
             <div id="Skill" class="h-screen">
-                <main class="grid w-full min-h-screen text-gray-100 bg-gray-900 place-content-center">
-                    <h1 class="text-3xl text-gray-100 text-center md:text-left font-bold mb-6">
+                <main class="grid w-full min-h-screen text-gray-100 bg-gray-100 place-content-center">
+                    <h1 class="text-3xl text-gray-600 text-center md:text-left font-bold mb-6">
                         Compétences :
                     </h1>
                     <section x-data="skillDisplay"
                         class="p-6 space-y-6 bg-gray-800 rounded-xl md:grid md:grid-cols-2 md:gap-4 sm:space-y-0">
+                        <!-- Affichage des skill -->
                         <div class="grid grid-cols-2 gap-6">
                             <template x-for="skill in skills">
                                 <button x-text="skill.title"
@@ -58,6 +59,7 @@
                                     @click="currentSkill = skill"></button>
                             </template>
                         </div>
+                        <!-- Affichage des pourcentages -->
                         <div class="flex items-center justify-center" x-data="{ circumference: 2 * 22 / 7 * 120 }">
                             <svg class="transform -rotate-90 w-72 h-72">
                                 <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30"
@@ -77,6 +79,9 @@
             <!-- #region Experience-->
             <div id="Experience" class="h-screen">
                 <main class="grid w-full min-h-screen text-gray-100 bg-gray-900 place-content-center">
+                    <h1 class="text-3xl text-white text-center md:text-left font-bold mb-6">
+                        Expériences :
+                    </h1>
                     <section x-data="experienceDisplay"
                         class="p-6 space-y-6 bg-gray-800 rounded-xl md:grid md:grid-cols-2 md:gap-4 sm:space-y-0">
                         <!-- Affichage des buttons -->
@@ -93,7 +98,6 @@
                             <div class="px-6 py-4">
                                 <div class="font-bold text-2xl mb-2" x-text="`${currentExperience.title}`"></div>
                                 <p class="text-gray-500 text-base" x-text="`${currentExperience.explanation}`"></p>
-                                
                             </div>
                             <div class="px-6 pt-4 pb-2">
                                 <p class="font-bold text-lg mb-2 underline">Durée</p>
@@ -102,7 +106,6 @@
                                     x-text="`${currentExperience.duration}`"></span>
                             </div>
                         </div>
-
                     </section>
                 </main>
             </div>
@@ -124,7 +127,7 @@
                         </div class="grid grid-cols-1 gap-6">
                         <!-- Affichage des projets -->
                         <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                            <img class="w-full" :src="`${currentProjet.image}`" alt="Sunset in the mountains">
+                            <img class="w-full" :src="`${currentProjet.image}`" alt="Image de projet">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-2xl mb-2" x-text="`${currentProjet.title}`"></div>
                                 <p class="text-gray-500 text-base" x-text="`${currentProjet.description}`"></p>
@@ -132,6 +135,7 @@
                                 <a class="font-bold text-lg mb-2 underline hover:text-sky-400"
                                     :href="`${currentProjet.link}`">Accéder au projet sur github</a>
                             </div>
+                            <!-- Affichage des languages -->
                             <div class="px-6 pt-4 pb-2">
                                 <template x-for="lang in currentProjet.languages">
                                     <span
@@ -146,7 +150,7 @@
             <!-- #endregion Projet-->
 
             <!-- #region Contact -->
-            <div id="#Contact" class="h-screen">
+            <div id="#FormContact" class="h-screen">
                 <div class="min-h-screen py-6 flex flex-col justify-center relative overflow-hidden sm:py-12">
                     <span
                         class="border text-4xl text-emerald-800 px-6 pt-10 pb-8 bg-white w-1/2 max-w-md mx-auto rounded-t-md sm:px-10">
@@ -194,7 +198,7 @@
                             <a href="#Projet">Projet</a>
                         </li>
                         <li class="hover:bg-neutral-400 px-6 border-b border-white w-full">
-                            <a href="#Contact">Contact</a>
+                            <a href="#FormContact">Contact</a>
                         </li>
                     </ul>
                 </div>
@@ -233,7 +237,7 @@
                 'percent': '75',
             }, {
                 'title': 'Laravel',
-                'percent': '75',
+                'percent': '50',
             }, {
                 'title': 'Heroku/Postgre',
                 'percent': '60',
@@ -257,6 +261,11 @@
                 'title': 'BLS',
                 'duration': '1 year (en cours)',
                 'explanation': 'Alternance',
+            },
+            {
+                'title': 'DISP Fresnes',
+                'duration': '6 semaines',
+                'explanation': 'Maintenance du parc informatique',
             }
             ],
             currentExperience: {
